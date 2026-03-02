@@ -1,6 +1,6 @@
 I created OpenCoach as a personal career coach. His name is Eames and he helps with all your career questions!
 
-1. Feature 1: N/A 
+1. Feature 1: API call to zenquotes.io that gives me a quote for the user
 2. Feature 2: I used a RAG with embeddings of an MIT article on "How to Create a Career Plan". This is what I used for my semantic search requirement
 3. Feature 3: N/A
 
