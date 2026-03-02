@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import os
 
 from tools import career_plan
+from tools import inspirational_quote
 
 load_dotenv(".env")
 load_dotenv(".secrets")
@@ -22,7 +23,7 @@ chat_agent = init_chat_model(
     default_headers={"x-api-key": os.getenv('API_GATEWAY_KEY')}
 )
 
-tools = [career_plan]
+tools = [career_plan, inspirational_quote]
 
 system_msg = SystemMessage(
     """
@@ -37,6 +38,8 @@ system_msg = SystemMessage(
 
     You have a tool called career_plan. Use it whenever the user asks anything related to 
     career planning, career development, or professional growth.
+
+    You also have a tool called inspirational_quote. Use it whenever the user seems discouraged or unmotivated or asks for a quote.
     """
 )
 

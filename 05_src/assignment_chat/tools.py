@@ -3,6 +3,8 @@ import chromadb
 from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 from langchain.tools import tool
 from openai import OpenAI
+import json
+import requests
 import os
 
 load_dotenv(".secrets")
@@ -27,3 +29,12 @@ def career_plan(query: str, n_results: int = 1):
     results = collection.query(query_texts=[text], n_results=n_results)
 
     return results['documents'][0]
+
+@tool
+def inspirational_quote():
+    """Use this if the user sounds demotivated, discouraged, or asks for inspirational and motivational quotes"""
+    url = "https://zenquotes.io/api/random/"
+
+    response = requests.get(url=url) 
+    converted_response = response.json()
+    return f'"{converted_response[0]["q"]}" — {converted_response[0]["a"]}'
