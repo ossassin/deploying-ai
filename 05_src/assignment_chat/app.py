@@ -42,9 +42,16 @@ demo = gr.ChatInterface(
     fn=responder,
     type="messages",
     save_history= True,
-    title="OpenCoach",
+    title="SimpleCoach",
+    description = "Your personal AI coach",
     flagging_mode="manual",
     flagging_options=["Like", "Dislike"],
+    theme=gr.themes.Soft(
+        primary_hue="gray",
+        secondary_hue="gray",
+        neutral_hue="gray",
+    ),
+    css="p { text-align: center; }"
 )
 
 demo.launch()
